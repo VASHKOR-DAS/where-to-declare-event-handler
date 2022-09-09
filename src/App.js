@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import User from './component/User/User';
 
 function App() {
-  
 
   const [users, setUsers] = useState([])
   useEffect(() => {
@@ -12,16 +11,25 @@ function App() {
       .then(data => setUsers(data))
   }, [])
 
+
+
+  // cart a add krr jnne
+  const [team, setTeam] = useState([]);
   //cart a add krbo member, tai parent a function likhchi
   const addMember = (name) => {
-    console.log('member added', name)
+    setTeam([...team, name]);
   }
 
   return (
     <div>
       <h1>Team Builder</h1>
-      {/* cart a add krr jnne */}
 
+      {/* cart a add krr jnne */}
+      <ul>
+        {
+          team.map( m => <li>{m}</li>)
+        }
+      </ul>
 
 
 
